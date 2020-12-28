@@ -1,9 +1,9 @@
 locals {
-  env                    = title(var.env)
-  vpc_name               = "${local.env}_vpc"
+  environment            = title(var.environment)
+  vpc_name               = "${local.environment}_vpc"
   availability_zones     = list("a", "b")
-  web_subnet_names       = [for az in local.availability_zones : "Web_${local.env}_az${az}_net"]
-  app_subnet_names       = [for az in local.availability_zones : "App_${local.env}_az${az}_net"]
+  web_subnet_names       = [for az in local.availability_zones : "Web_${local.environment}_az${az}_net"]
+  app_subnet_names       = [for az in local.availability_zones : "App_${local.environment}_az${az}_net"]
   app_subnet_cidr_blocks = [for s in data.aws_subnet.app : s.cidr_block]
 }
 
