@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.11"
+    }
+  }
+}
+
 locals {
   environment            = title(var.environment)
   vpc_name               = "${local.environment}_vpc"
