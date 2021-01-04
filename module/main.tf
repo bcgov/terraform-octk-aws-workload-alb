@@ -8,7 +8,13 @@ terraform {
 }
 
 locals {
-  environment            = title(var.environment)
+  env_map = {
+    dev     = "Dev"
+    test    = "Test"
+    sandbox = "Sandbox"
+    unclass = "UnClass"
+  }
+  environment            = local.env_map[var.environment]
   vpc_name               = "${local.environment}_vpc"
   availability_zones     = list("a", "b")
   web_subnet_names       = [for az in local.availability_zones : "Web_${local.environment}_az${az}_net"]
