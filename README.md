@@ -1,32 +1,25 @@
 
-# <application_license_badge>
-<!--- [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE) --->
-
-# BC Gov Terraform Template
+# terraform-octk-aws-workload-alb
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
 
 This repo provides a starting point for users who want to create valid Terraform modules stored in GitHub.  
-
-## Third-Party Products/Libraries used and the licenses they are covered by
-<!--- product/library and path to the LICENSE --->
-<!--- Example: <library_name> - [![GitHub](<shield_icon_link>)](<path_to_library_LICENSE>) --->
 
 ## Project Status
 - [x] Development
 - [ ] Production/Maintenance
 
 ## Documentation
-<!--- Point to another readme or create a GitHub Pages (https://guides.github.com/features/pages/) --->
+
 
 ## Getting Started
-<!--- setup env vars, secrets, instructions... --->
+
 
 ## Getting Help or Reporting an Issue
-<!--- Example below, modify accordingly --->
+
 To report bugs/issues/feature requests, please file an [issue](../../issues).
 
-
 ## How to Contribute
-<!--- Example below, modify accordingly --->
+
 If you would like to contribute, please see our [CONTRIBUTING](./CONTRIBUTING.md) guidelines.
 
 Please note that this project is released with a [Contributor Code of Conduct](./CODE_OF_CONDUCT.md). 
