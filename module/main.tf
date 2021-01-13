@@ -12,7 +12,7 @@ locals {
 }
 
 module "network" {
-  source      = "git::git@github.com:wrnu/terraform-octk-aws-sea-network-info?ref=master"
+  source      = "git::git@github.com:BCDevOps/terraform-octk-aws-sea-network-info?ref=master"
   environment = var.environment
 }
 
