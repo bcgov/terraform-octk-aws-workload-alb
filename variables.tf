@@ -1,1 +1,3 @@
-//module variables should be defined and documented here.
+variable "project_config" {
+  description = "project.json config."
+}

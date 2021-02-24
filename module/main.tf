@@ -17,7 +17,7 @@ module "network" {
 }
 
 resource "aws_security_group" "lb" {
-  name        = "internal-workload-lb-security-group"
+  name        = "${var.name}-lb-security-group"
   description = "controls access to the ALB"
   vpc_id      = module.network.aws_vpc.id
 
@@ -44,7 +44,7 @@ resource "aws_security_group" "lb" {
 }
 
 resource "aws_alb" "this" {
-  name               = "internal-workload-lb"
+  name               = var.name
   load_balancer_type = "application"
   internal           = true
   subnets            = module.network.aws_subnet_ids.web.ids
