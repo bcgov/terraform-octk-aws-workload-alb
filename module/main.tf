@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.11"
+      version = ">= 3.11"
     }
   }
 }
@@ -16,31 +16,8 @@ module "network" {
   environment = var.environment
 }
 
-resource "aws_security_group" "lb" {
-  name        = "${var.name}-lb-security-group"
-  description = "controls access to the ALB"
-  vpc_id      = module.network.aws_vpc.id
-
-  ingress {
-    protocol    = "tcp"
-    from_port   = 443
-    to_port     = 443
-    cidr_blocks = [module.network.aws_vpc.cidr_block]
-  }
-
-  ingress {
-    protocol    = "tcp"
-    from_port   = 0
-    to_port     = 0
-    cidr_blocks = local.app_subnet_cidr_blocks
-  }
-
-  egress {
-    protocol    = "tcp"
-    from_port   = 0
-    to_port     = 0
-    cidr_blocks = local.app_subnet_cidr_blocks
-  }
+data "aws_security_group" "lb" {
+  name = "Web_sg"
 }
 
 resource "aws_alb" "this" {
@@ -48,5 +25,28 @@ resource "aws_alb" "this" {
   load_balancer_type = "application"
   internal           = true
   subnets            = module.network.aws_subnet_ids.web.ids
-  security_groups    = [aws_security_group.lb.id]
+  security_groups    = [data.aws_security_group.lb.id]
+}
+
+resource "aws_alb_listener" "secure" {
+  load_balancer_arn = aws_alb.this.id
+  port              = 443
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = data.aws_acm_certificate.default.arn
+
+
+  default_action {
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      status_code  = "200"
+    }
+  }
+}
+
+data "aws_acm_certificate" "default" {
+  domain   = var.alb_cert_domain
+  statuses = ["ISSUED"]
 }
