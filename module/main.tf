@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = ">= 3.11"
-    }
-  }
-}
-
 locals {
   app_subnet_cidr_blocks = [for s in module.network.aws_subnet.app : s.cidr_block]
 }
