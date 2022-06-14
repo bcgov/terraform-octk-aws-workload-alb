@@ -26,6 +26,11 @@ resource "aws_alb" "this" {
   internal           = true
   subnets            = module.network.aws_subnet_ids.web.ids
   security_groups    = [data.aws_security_group.lb.id]
+
+  # Ignore access logs, the ASEA stack will handle them
+  lifecycle {
+    ignore_changes = [access_logs["enabled"]]
+  }
 }
 
 resource "aws_alb_listener" "secure" {
