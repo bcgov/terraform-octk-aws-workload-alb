@@ -2,7 +2,7 @@ name: terraform format check
 on:
   - pull_request
 jobs:
-  docs:
+  format:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
