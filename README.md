@@ -1,18 +1,21 @@
 
 # terraform-octk-aws-workload-alb
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
 
 This repo provides a starting point for users who want to create valid Terraform modules stored in GitHub.  
 
 ## Project Status
+
 - [x] Development
 - [ ] Production/Maintenance
 
-## Documentation
+# Documentation
 
+<!-- BEGIN_TF_DOCS -->
+<!-- END_TF_DOCS -->
 
 ## Getting Started
-
 
 ## Getting Help or Reporting an Issue
 
