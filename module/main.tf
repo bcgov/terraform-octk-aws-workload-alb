@@ -44,5 +44,5 @@ resource "aws_alb_listener" "secure" {
 
 data "aws_acm_certificate" "default" {
   domain   = var.alb_cert_domain
-  statuses = ["ISSUED"]
+  statuses = ["ISSUED", "EXPIRED"]
 }
