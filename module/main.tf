@@ -20,7 +20,11 @@ resource "aws_alb" "this" {
 
   # Ignore access logs, the ASEA stack will handle them
   lifecycle {
-    ignore_changes = [access_logs["enabled"]]
+    ignore_changes = [
+      access_logs["enabled"],
+      xff_header_processing_mode,
+      preserve_host_header
+    ]
   }
 }
 
@@ -39,6 +43,9 @@ resource "aws_alb_listener" "secure" {
       content_type = "text/plain"
       status_code  = "200"
     }
+  }
+  lifecycle {
+    ignore_changes = [default_action]
   }
 }
 
