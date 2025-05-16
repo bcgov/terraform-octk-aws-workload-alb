@@ -23,7 +23,8 @@ resource "aws_alb" "this" {
     ignore_changes = [
       access_logs["enabled"],
       xff_header_processing_mode,
-      preserve_host_header
+      preserve_host_header,
+      idle_timeout
     ]
   }
 }
