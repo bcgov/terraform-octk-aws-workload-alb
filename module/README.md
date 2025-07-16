@@ -3,13 +3,13 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.57.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.57.0 |
 
 ## Modules
 
@@ -21,10 +21,10 @@
 
 | Name | Type |
 |------|------|
-| [aws_alb.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/alb) | resource |
-| [aws_alb_listener.secure](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/alb_listener) | resource |
-| [aws_acm_certificate.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/acm_certificate) | data source |
-| [aws_security_group.lb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/security_group) | data source |
+| [aws_alb.this](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/alb) | resource |
+| [aws_alb_listener.secure](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/alb_listener) | resource |
+| [aws_acm_certificate.default](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/acm_certificate) | data source |
+| [aws_security_group.lb](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/security_group) | data source |
 
 ## Inputs
 
